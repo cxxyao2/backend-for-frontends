@@ -61,9 +61,6 @@ router.post('/', async (req, res) => {
   // res.cookie('cookieName', 'cookieValue', { sameSite: 'none', secure: true}
   // for Angular
   res.cookie(config.get('cookieName'), token);
-  console.log('cookies when login', token);
-  console.log('cookie name', config.get('cookieName'));
-  console.log('res cookie setting result', req.cookies[config.get('cookieName')]);
   res.send({
     data: _.pick(user, [
       '_id',
@@ -76,6 +73,7 @@ router.post('/', async (req, res) => {
       'failedCount',
     ]),
     message: 'You have successfully logged in.',
+    token: token,
   });
 });
 
