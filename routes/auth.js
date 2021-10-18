@@ -63,6 +63,7 @@ router.post('/', async (req, res) => {
   res.cookie(config.get('cookieName'), token);
   console.log('cookies when login', token);
   console.log('cookie name', config.get('cookieName'));
+  console.log('res cookie setting result', req.cookies[config.get('cookieName')]);
   res.send({
     data: _.pick(user, [
       '_id',
