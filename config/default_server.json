@@ -1,0 +1,15 @@
+{
+  "name": "My Express App",
+  "requiresAuth": "true",
+  "tokenExpiredMinute": "60",
+  "pwdTryMax": "3",
+  "port": "5000",
+  "jwtPrivateKey": "",
+  "mail": {
+    "host": "",
+    "user": "",
+    "password": ""
+  },
+  "db": "",
+  "frontendUrl": ""
+}

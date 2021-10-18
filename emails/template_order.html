@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Excel Company</title>
+    <style>
+      .container {
+        padding-top: 20px;
+        background-color: #e0e0e0;
+        height: 100%;
+        width: 100%;
+      }
+      .content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .table-header {
+        background-color: #005cb2;
+        color: white;
+        display: flex;
+        justify-content: stretch;
+      }
+      .table-header-image {
+        display: inline-block;
+        border-radius: 10px;
+        margin: 10px;
+        max-width: 100px;
+        object-fit: cover;
+        overflow: hidden;
+      }
+      .table-header-text {
+        font-size: 20px;
+        padding: 10px;
+        margin: auto;
+      }
+      .table-content {
+        padding: 10px;
+        width: 100%;
+        text-align: left;
+        background-color: white;
+        box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+          0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+      }
+      .table-content-item-name {
+        color: #0e0e0e;
+        font-weight: bold;
+      }
+      .table-content-item-name-bigger {
+        font-size: 1.2rem;
+        color: #005cb2;
+      }
+      .table-content-inside-divider {
+        height: 1px;
+        color: lightgray;
+        width: 100%;
+        margin: 16px auto;
+      }
+      .footer-company-info {
+        width: 100%;
+        font-size: 12px;
+        color: #555;
+        text-align: center;
+        padding: 10px;
+      }
+      .footer-nav-item {
+        text-decoration: none;
+        color: #00549a;
+        transition: all 0.3s;
+      }
+      .footer-nav-item:hover,
+      .footer-nav-item:active {
+        opacity: 0.8;
+        box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.2),
+          -1 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <table
+          style="
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 10px 10px;
+          "
+        >
+          <tr>
+            <td>
+              <div class="table-header">
+                <div>
+                  <img
+                    src="https://source.unsplash.com/random/200×200/?gas"
+                    class="table-header-image"
+                    alt="excel company"
+                  />
+                </div>
+                <div class="table-header-text">Your Order Details</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="table-content">
+              <p style="color: #005cb2; font-size: 2.4rem">Dear Jennifer,</p>
+              <p>Thank for buying gaz in our shops.</p>
+              <p>We would like you to review the following details.</p>
+              <hr class="table-content-inside-divider" />
+              <table style="width: 100%">
+                <tr>
+                  <td class="table-content-item-name">Amount:</td>
+                  <td>$12</td>
+                </tr>
+                <tr height="10">
+                  <td colspan="2"></td>
+                </tr>
+                <tr>
+                  <td class="table-content-item-name">Tax:</td>
+                  <td>$12</td>
+                </tr>
+                <tr height="10">
+                  <td colspan="2"></td>
+                </tr>
+                <tr>
+                  <td class="table-content-item-name-bigger">Total:</td>
+                  <td>$24</td>
+                </tr>
+              </table>
+              <hr class="table-content-inside-divider" />
+              <p>For any changes or questions, please contact us.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="footer-company-info">
+              <div>
+                <a
+                  href="https://www.google.com"
+                  alt="contact"
+                  class="footer-nav-item"
+                  >Email Us</a
+                ><span style="margin: 0 4px">|</span>
+                <a
+                  href="https://www.google.com"
+                  alt="contact"
+                  class="footer-nav-item"
+                  >Call Us</a
+                ><span style="margin: 0 4px">|</span>
+                <a
+                  href="https://www.google.com"
+                  alt="contact"
+                  class="footer-nav-item"
+                  >Products on Sale</a
+                >
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="footer-company-info">
+              Excel Company Snowdon Branch <br />
+              111 Carrefour Street, Quebec, H3B 4B5<br />
+              Copyright@2021.Excel Company.All Rights Reserved
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

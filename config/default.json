@@ -1,0 +1,8 @@
+{
+  "name": "My Express App",
+  "requiresAuth": "true",
+  "tokenExpiredMinute": "60",
+  "pwdTryMax": "3",
+  "cookieName": "xsrf-token",
+  "tokenHeaderName": "x-xsrf-token"
+}

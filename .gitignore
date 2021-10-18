@@ -1,0 +1,13 @@
+node_modules/
+coverage/
+uploadsbak/
+tmp/
+deletes/
+tests/
+
+# macOS
+.DS_Store
+
+# config
+config.MD
+

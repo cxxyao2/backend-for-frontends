@@ -1,0 +1,126 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Excel Company
+    style.
+      .container {
+      padding-top: 20px;
+      background-color: #e0e0e0;
+      height: 100%;
+      width: 100%;
+      }
+      .content {
+      max-width: 600px;
+      margin: 0 auto;
+      }
+      .table-header {
+      background-color: #005cb2;
+      color: white;
+      display: flex;
+      justify-content: stretch;
+      }
+      .table-header-image {
+      display: inline-block;
+      border-radius: 10px;
+      margin: 10px;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      overflow: hidden;
+      }
+      .table-header-text {
+      font-size: 20px;
+      padding: 10px;
+      margin: auto;
+      }
+      .table-content {
+      padding: 10px;
+      width: 100%;
+      text-align: left;
+      background-color: white;
+      box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+      0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+      }
+      .table-content-item-name {
+      color: #0e0e0e;
+      font-weight: bold;
+      }
+      .table-content-item-name-bigger {
+      font-size: 1.2rem;
+      color: #005cb2;
+      }
+      .table-content-inside-divider {
+      color: lightgray;
+      }
+      .footer-company-info {
+      width: 100%;
+      font-size: 12px;
+      color: #555;
+      text-align: center;
+      padding: 10px;
+      }
+      .footer-nav-item {
+      text-decoration: none;
+      color: #00549a;
+      transition: all 0.3s;
+      }
+      .footer-nav-item:hover,
+      .footer-nav-item:active {
+      opacity: 0.8;
+      box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.2),
+      -1 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+      }
+  body
+    .container
+      .content
+        table(style='\
+            width: 100%;\
+            border-collapse: separate;\
+            border-spacing: 10px 10px;\
+          ')
+          tr
+            td
+              .table-header
+                div
+                  img.table-header-image(src="cid:unique@kreata.ee" alt='Excel Company')
+                .table-header-text Your Order Details
+          tr
+            td.table-content
+              p(style='color: #005cb2; font-size: 2.4rem') Dear #{name},
+              p Thank for buying gaz in our shops.
+              p We would like you to review the following details.
+              hr.table-content-inside-divider
+              table(style='width: 100%')
+                tr
+                  td.table-content-item-name Amount:
+                  td $#{amount}
+                tr(height='10')
+                  td(colspan='2')
+                tr
+                  td.table-content-item-name Tax:
+                  td $#{tax}
+                tr(height='10')
+                  td(colspan='2')
+                tr
+                  td.table-content-item-name-bigger Total:
+                  td $#{total}
+              hr.table-content-inside-divider
+              p For any changes or questions, please contact us.
+          tr
+            td.footer-company-info
+              div
+                a.footer-nav-item(href='https://www.google.com' alt='contact') Email Us
+                span(style='margin: 0 4px') |
+                a.footer-nav-item(href='https://www.google.com' alt='contact') Call Us
+                span(style='margin: 0 4px') |
+                a.footer-nav-item(href='https://www.google.com' alt='contact') Products on Sale
+          tr
+            td.footer-company-info
+              | Excel Company Snowdon Branch
+              br
+              | 111 Carrefour Street, Quebec, H3B 4B5
+              br
+              | Copyright@2021.Excel Company.All Rights Reserved

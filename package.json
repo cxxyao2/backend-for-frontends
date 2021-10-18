@@ -1,0 +1,47 @@
+{
+  "name": "exp_server1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll --env=node  --verbose --coverage",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "v12.18.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "compression": "^1.7.4",
+    "config": "^3.3.2",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "debug": "^4.2.0",
+    "email-templates": "^8.0.8",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-fileupload": "^1.2.0",
+    "fawn": "^2.1.5",
+    "helmet": "^4.1.1",
+    "jest": "^26.6.3",
+    "joi": "^17.3.0",
+    "joi-objectid": "^3.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.11",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.18",
+    "nodemon": "^2.0.6",
+    "pug": "^3.0.0",
+    "winston": "^2.4.0",
+    "winston-mongodb": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.11.97",
+    "supertest": "^3.0.0"
+  }
+}
