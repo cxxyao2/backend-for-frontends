@@ -60,7 +60,8 @@ router.post('/', async (req, res) => {
   // secure : only works for https . not of http
   // res.cookie('cookieName', 'cookieValue', { sameSite: 'none', secure: true}
   // for Angular
-  res.cookie(config.get('cookieName'), token);
+  re.cookie(config.get('cookieName'), token);
+  console.log('cookies when login', res.cookies);
   res.send({
     data: _.pick(user, [
       '_id',
