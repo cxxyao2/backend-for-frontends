@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   if (!req.query.isAuthorized && !req.query.createDate) {
     customers = await Customer.find().sort('name');
   }
-  if (req.query.isAuthorized) {
+  if (req.query.isAuthorized !== undefined) {
     // http://localhost:5000/api/customers/?isAuthorized=true ? is necessary
     isAuthorized = req.query.isAuthorized;
     customers = await Customer.find({ isAuthorized: isAuthorized });
@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
     customers = await Customer.find({ createDate: { $gt: createDate } });
   }
 
-  if (req.query.isAuthorized && req.query.createDate) {
+  if (req.query.isAuthorized!== undefined && req.query.createDate) {
     createDate = req.query.createDate;
     isAuthorized = req.query.isAuthorized;
     customers = await Customer.find({
@@ -51,7 +51,7 @@ router.post('/', [auth, admin], async (req, res) => {
   // optional paths
   if (req.body.latitude) customer.latitude = req.body.latitude;
   if (req.body.longitude) customer.longitude = req.body.longitude;
-  if (req.body.isAuthorized) customer.isAuthorized = req.body.isAuthorized;
+  if (req.body.isAuthorized !== undefined) customer.isAuthorized = req.body.isAuthorized;
   if (req.body.credit) customer.credit = req.body.credit;
   if (req.body.imageUrl) customer.imageUrl = req.body.imageUrl;
 
@@ -78,7 +78,8 @@ router.put('/:id', [auth, admin], async (req, res) => {
 
   if (req.body.latitude) customer.latitude = req.body.latitude;
   if (req.body.longitude) customer.longitude = req.body.longitude;
-  if (req.body.isAuthorized) customer.isAuthorized = req.body.isAuthorized;
+  if (req.body.isAuthorized !== undefined)
+    customer.isAuthorized = req.body.isAuthorized;
   if (req.body.credit) customer.credit = req.body.credit;
   if (req.body.imageUrl) customer.imageUrl = req.body.imageUrl;
   if (req.body.email) customer.email = req.body.email;

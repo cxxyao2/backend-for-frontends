@@ -14,7 +14,6 @@ let whitelist = [];
 whitelist.push(config.get('frontendUrl'));
 let corsOptions = {
   origin: (origin, callback) => {
-    console.log('origin is ', origin);
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true);
     } else {

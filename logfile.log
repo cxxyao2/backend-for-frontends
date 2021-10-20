@@ -1226,3 +1226,5 @@
 {"level":"info","message":"Connected to mongodb+srv://cxx2006:hans2006cxx@cluster0.pa8mh.mongodb.net/test...","timestamp":"2021-10-18T02:58:42.856Z"}
 {"level":"info","message":"Listening on port 5000...","timestamp":"2021-10-18T13:03:36.345Z"}
 {"level":"info","message":"Connected to mongodb+srv://cxx2006:hans2006cxx@cluster0.pa8mh.mongodb.net/test...","timestamp":"2021-10-18T13:03:36.727Z"}
+{"level":"info","message":"Listening on port 5000...","timestamp":"2021-10-19T00:34:44.394Z"}
+{"level":"info","message":"Connected to mongodb://localhost:27017/ng-center...","timestamp":"2021-10-19T00:34:44.483Z"}
