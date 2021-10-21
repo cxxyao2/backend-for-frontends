@@ -57,7 +57,7 @@ router.post('/', async (req, res) => {
   }
 
   const token = user.generateAuthToken();
-  // secure : only works for https . not of http, production environment
+  // production environment,  secure:true
   res.cookie(config.get('cookieName'), token, {
     sameSite: 'none',
     secure: true,
