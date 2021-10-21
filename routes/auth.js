@@ -57,10 +57,13 @@ router.post('/', async (req, res) => {
   }
 
   const token = user.generateAuthToken();
-  // secure : only works for https . not of http
-  // res.cookie('cookieName', 'cookieValue', { sameSite: 'none', secure: true}
-  // for Angular
-  res.cookie(config.get('cookieName'), token);
+  // secure : only works for https . not of http, production environment
+  res.cookie(config.get('cookieName'), token, {
+    sameSite: 'none',
+    secure: true,
+  });
+  // for Angular localhost, development environment
+  // res.cookie(config.get('cookieName'), token);
   res.send({
     data: _.pick(user, [
       '_id',
@@ -114,7 +117,7 @@ router.post('/send-place-order-email', async (req, res) => {
   }
 });
 
-// send reset password Email TODO
+// send reset password Email
 router.post('/send-reset-email', async (req, res) => {
   const email = req.body.email;
   let user = await User.findOne({ email: req.body.email });
