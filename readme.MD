@@ -1,4 +1,4 @@
-# Backend For Angular Project
+# Backend For Frontend Projects ( Angular, React, NextJS)
 
 ## Start the application
 
