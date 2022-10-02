@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', [auth, admin], async (req, res) => {
   const { error } = validate(_.pick(req.body, ['name']));
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send({message:error.details[0].message});
 
   let product = new Product();
   // required paths

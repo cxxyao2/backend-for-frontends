@@ -1,18 +1,18 @@
-const { Waitlist, validate } = require('../models/waitlist');
-const admin = require('../middleware/admin');
-const auth = require('../middleware/auth');
+const { Waitlist, validate } = require('../models/waitlist')
+const admin = require('../middleware/admin')
+const auth = require('../middleware/auth')
 
-const express = require('express');
-const router = express.Router();
-const _ = require('lodash');
+const express = require('express')
+const router = express.Router()
+const _ = require('lodash')
 
 router.get('/', async (req, res) => {
-  let waitlists = [];
+  let waitlists = []
   if (!req.query.customer) {
     waitlists = await Waitlist.find()
       .populate('customer', 'name')
       .populate('product', 'name category')
-      .sort('createDate');
+      .sort('createDate')
   }
   if (req.query.customer) {
     waitlists = await Waitlist.find({
@@ -20,9 +20,9 @@ router.get('/', async (req, res) => {
     })
       .populate('customer', 'name')
       .populate('product', 'name category')
-      .sort('createDate');
+      .sort('createDate')
   }
-  let returnArray = [];
+  let returnArray = []
   waitlists.forEach((wait) => {
     returnArray.push({
       _id: wait._id,
@@ -31,27 +31,27 @@ router.get('/', async (req, res) => {
       productId: wait.product._id,
       productName: wait.product.name,
       createDate: wait.createDate,
-    });
-  });
-  res.send(returnArray);
-});
+    })
+  })
+  res.send(returnArray)
+})
 
 router.post('/', [auth, admin], async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  const { error } = validate(req.body)
+  if (error) return res.status(400).send({ message: error.details[0].message })
 
   let waitlist = new Waitlist({
     customer: req.body.customerId,
     product: req.body.productId,
     createUser: req.user._id,
-  });
-  cart = await waitlist.save();
-  res.send(waitlist);
-});
+  })
+  cart = await waitlist.save()
+  res.send(waitlist)
+})
 
 router.put('/:id', [auth, admin], async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  const { error } = validate(req.body)
+  if (error) return res.status(400).send({ message: error.details[0].message })
   const waitlist = await Waitlist.findByIdAndUpdate(
     req.params.id,
     {
@@ -60,36 +60,30 @@ router.put('/:id', [auth, admin], async (req, res) => {
       updateUser: req.user._id,
     },
     { new: true } // true means return updated object
-  );
+  )
 
   if (!waitlist)
-    return res
-      .status(404)
-      .send('The waitlist with the given ID was not found.');
+    return res.status(404).send('The waitlist with the given ID was not found.')
 
-  res.send(waitlist);
-});
+  res.send(waitlist)
+})
 
 router.delete('/:id', [auth, admin], async (req, res) => {
-  const waitlist = await Waitlist.findByIdAndRemove(req.params.id);
+  const waitlist = await Waitlist.findByIdAndRemove(req.params.id)
 
   if (!waitlist)
-    return res
-      .status(404)
-      .send('The waitlist with the given ID was not found.');
+    return res.status(404).send('The waitlist with the given ID was not found.')
 
-  res.send(waitlist);
-});
+  res.send(waitlist)
+})
 
 router.get('/:id', async (req, res) => {
   const wait = await Waitlist.findById(req.params.id)
     .populate('customer', 'name')
-    .populate('product', 'name category');
+    .populate('product', 'name category')
 
   if (!wait)
-    return res
-      .status(404)
-      .send('The waitlist with the given ID was not found.');
+    return res.status(404).send('The waitlist with the given ID was not found.')
 
   res.send({
     _id: wait._id,
@@ -98,7 +92,7 @@ router.get('/:id', async (req, res) => {
     productId: wait.product._id,
     productName: wait.product.name,
     createDate: wait.createDate,
-  });
-});
+  })
+})
 
-module.exports = router;
+module.exports = router

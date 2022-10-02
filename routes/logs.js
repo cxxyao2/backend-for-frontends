@@ -57,7 +57,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', [auth], async (req, res) => {
   const { error } = validate(_.pick(req.body, ['content']));
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send({message:error.details[0].message});
 
   const ip = req.connection.remoteAddress || req.headers['x-forwarded-for'];
   const log = new Log({
@@ -71,7 +71,7 @@ router.post('/', [auth], async (req, res) => {
 
 router.put('/:id', [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send({message:error.details[0].message});
 
   let log = await Log.findById(req.params.id);
   if (!log)

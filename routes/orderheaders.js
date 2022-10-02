@@ -82,10 +82,10 @@ router.get('/', async (req, res) => {
 
 router.post('/', [auth, admin], async (req, res) => {
   const { error } = validate(_.pick(req.body, ['customerId', 'orderDate']));
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send({message:error.details[0].message});
 
   const customer = await Customer.findById(req.body.customerId);
-  if (!customer) return res.status(400).send('Invalid customer.');
+  if (!customer) return res.status(400).send({message:'Invalid customer.'});
 
   // required paths
   const orderHeader = new OrderHeader();
@@ -102,16 +102,16 @@ router.post('/', [auth, admin], async (req, res) => {
 
 router.put('/:id', [auth, admin], async (req, res) => {
   const { error } = validate(_.pick(req.body, ['customerId', 'orderDate']));
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send({message:error.details[0].message});
 
   const customer = await Customer.findById(req.body.customerId);
-  if (!customer) return res.status(400).send('Invalid customer.');
+  if (!customer) return res.status(400).send({message:'Invalid customer.'});
 
   let orderHeader = await OrderHeader.findById(req.params.id);
   if (!orderHeader)
     return res
       .status(404)
-      .send('The OrderHeader with the given ID was not found.');
+      .send({message:'The OrderHeader with the given ID was not found.'});
 
   // only update paths whose value is not null or undefined
   if (req.body.customerId) orderHeader.customer = req.body.customerId;

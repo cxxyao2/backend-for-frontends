@@ -3,15 +3,16 @@
   "requiresAuth": "true",
   "tokenExpiredMinute": "60",
   "pwdTryMax": "3",
-  "port": "5000",
-  "jwtPrivateKey": "08*67-1",
-  "cookieName": "xsrf-token",
-  "tokenHeaderName": "x-xsrf-token",
+  "port": "",
+  "jwtPrivateKey": "",
+  "cookieName": "my-xsrf-token",
+  "tokenHeaderName": "my-x-xsrf-token",
   "mail": {
-    "host": "smtp.gmail.com",
-    "user": "cxxyao2@gmail.com",
-    "password": "dcqurgvnfxbfafoz"
+    "host": "",
+    "user": "",
+    "password": ""
   },
-  "db": "mongodb://localhost:27017/ng-center",
-  "frontendUrl": "http://localhost:4200"
+
+  "db": "",
+  "frontendUrl": ""
 }

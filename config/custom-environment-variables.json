@@ -7,5 +7,5 @@
   },
   "db": "app_db",
   "port": "app_dbPort",
-  "frontendUrl":"app_frontend"
+  "frontendUrl": "app_frontend"
 }
