@@ -1,11 +1,11 @@
-const winston = require('winston') // logger everything
+// const winston = require('winston') // logger everything
 const express = require('express')
 const fileUpload = require('express-fileupload')
 const cors = require('cors')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const config = require('config')
-const logger = require('./middleware/logger')
+// const logger = require('./middleware/logger')
 
 const app = express()
 app.use(express.static('public')) // make a folder public2
@@ -39,9 +39,9 @@ app.use(
 )
 
 app.use(cookieParser())
-app.use(logger)
+//app.use(logger)
 
-require('./startup/logging')()
+// require('./startup/logging')()
 require('./startup/routes')(app)
 require('./startup/db')()
 require('./startup/config')()
@@ -56,6 +56,6 @@ if (app.get('env') === 'development') {
 
 const port = process.env.PORT || config.get('port')
 const server = app.listen(port, () =>
-  winston.info(`Listening on port ${port}...`)
+  // winston.info(`Listening on port ${port}...`)
+  console.info(`Listening on port ${port}...`)
 )
-module.exports = server
