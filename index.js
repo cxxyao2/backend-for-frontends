@@ -13,6 +13,8 @@ app.use(express.static('public')) // make a folder public2
 const whitelist = config.get('frontendUrl').split(';')
 let corsOptions = {
   origin: (origin, callback) => {
+    console.log('origin is ', origin)
+    console.log('whitelist is', whitelist)
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true)
     } else {
