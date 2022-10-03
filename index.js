@@ -21,8 +21,8 @@ let corsOptions = {
   },
   credentials: true,
 }
-//app.use(cors(corsOptions))
-app.use(cors()) // development environment
+app.use(cors(corsOptions))
+// app.use(cors()) // todo development environment
 
 app.use(express.json())
 app.use(
