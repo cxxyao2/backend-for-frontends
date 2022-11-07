@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
   let returnLogs = [];
 
   if (!req.query.startDate && !req.query.endDate) {
-    logs = await Log.find().populate('createUser', 'name').sort('_id');
+     logs = await Log.find().populate('createUser', 'name').sort('_id');
   } else {
     const startDate = new Date(req.query.startDate);
     const endDate = new Date(req.query.endDate);
@@ -41,10 +41,9 @@ router.get('/', async (req, res) => {
   }
 
   if (!logs) return res.status(404).send('No log meets the filter conditions');
-
   logs.forEach((log) => {
-    returnLogs.push({
-      _id: log.id,
+    log.createUser && returnLogs.push({
+      _id: log._id,
       createUser: log.createUser._id,
       userName: log.createUser.name,
       createDate: log.createDate,
@@ -70,6 +69,7 @@ router.post('/', [auth], async (req, res) => {
 });
 
 router.put('/:id', [auth, admin], async (req, res) => {
+  console.log('log put');
   const { error } = validate(req.body);
   if (error) return res.status(400).send({message:error.details[0].message});
 
@@ -101,6 +101,7 @@ router.delete('/:id', [auth, admin], async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
+  console.log('get log by id');
   const log = await Log.populate('createUser', 'name').findById(req.params.id);
 
   if (!log)
